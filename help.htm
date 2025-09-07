@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My GitHub Pages Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="max-w-xl mx-auto p-8 bg-white rounded-xl shadow-lg text-center">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4">Hello, World!</h1>
+        <p class="text-gray-600 mb-6">
+            Your website is live! This is a simple page to show that GitHub Pages is working.
+        </p>
+        <button id="show-modal-btn" class="bg-blue-600 text-white font-medium py-2 px-6 rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-105 shadow-md">
+            Show Message
+        </button>
+    </div>
+
+    <!-- Custom Modal -->
+    <div id="custom-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg p-6 max-w-sm w-full mx-4 shadow-xl">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-semibold text-gray-800">My App</h2>
+                <button id="close-modal-btn" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="text-gray-700 mb-6">
+                This is a custom message that appears without freezing the page.
+            </p>
+            <div class="flex justify-end">
+                <button id="ok-modal-btn" class="bg-blue-600 text-white font-medium py-2 px-4 rounded-full hover:bg-blue-700 transition duration-300">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const showModalBtn = document.getElementById('show-modal-btn');
+            const customModal = document.getElementById('custom-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const okModalBtn = document.getElementById('ok-modal-btn');
+
+            showModalBtn.addEventListener('click', () => {
+                customModal.classList.remove('hidden');
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                customModal.classList.add('hidden');
+            });
+
+            okModalBtn.addEventListener('click', () => {
+                customModal.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
